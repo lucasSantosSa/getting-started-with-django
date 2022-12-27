@@ -6,4 +6,4 @@ class AgentModelForm(forms.ModelForm):
         model = Agent
         fields = (
             'user',
-        )
+        ),
