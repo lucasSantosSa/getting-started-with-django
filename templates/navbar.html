@@ -12,6 +12,7 @@
         {% else %}
           {% if request.user.is_organizer %}
             <a href={% url 'agents:agent-list' %} class="mr-5 hover:text-gray-900">Agents</a>
+            <a href='/admin/' target="_blank" class="mr-5 hover:text-gray-900">Admin</a>
           {% endif %}
           <a href={% url 'leads:lead-list' %} class="mr-5 hover:text-gray-900">Leads</a>
         {% endif %}

@@ -1,13 +1,12 @@
-{% extends 'agents/base.html' %}
+{% extends 'leads/base.html' %}
 {% block content %}
 
-<h1 class="mb-3 text-2xl font-bold" >Create a new Agent:</h1>
+<h1 class="mb-3 text-2xl font-bold" >Assign agent to lead:</h1>
 <form class="w-full bg-gray-200 px-4 ring-2 ring-gray-200" method="post" action=".">
-
     {% csrf_token %}
     <br>
     <div class="my-3 w-full border-none bg-transparent outline-none focus:outline-none">
-        <p class="mb-3 font-bold"> {{ form.as_p }} </p>
+        <p class="mb-3 font-bold">Agent: {{ form.agent }}</p>
     </div>
     <br>
     <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"> Submit </button>
