@@ -10,6 +10,7 @@ from .forms import (
     LeadModelForm,
     CustomUserCreationForm,
     AssignAgentForm,
+    LeadCategoryUpdateForm,
 )
 
 class SignupView(generic.CreateView):
@@ -75,7 +76,9 @@ class LeadCreateView(OrganizerAndLoginRequiredMixin, generic.CreateView):
         return reverse("leads:lead-list")
     
     def form_valid(self, form):
-        # TODO send email
+        lead = form.save(commit=False)
+        lead.organization = self.request.user.userprofile
+        lead.save()
         send_mail(
             subject="A lead has been created", 
             message="Go to the site to see the new lead",
@@ -174,3 +177,23 @@ class CategoryDetailView(LoginRequiredMixin, generic.DetailView):
                 organization=user.agent.organization
             )
         return queryset
+
+class LeadCategoryUpdateView(LoginRequiredMixin, generic.UpdateView):
+    template_name = "leads/lead_category_update.html"
+    form_class = LeadCategoryUpdateForm  
+
+    def get_queryset(self):
+        user = self.request.user
+        if user.is_organizer:
+            queryset = Lead.objects.filter(organization=user.userprofile)
+        else:
+            queryset = Lead.objects.filter(organization=user.agent.organization)
+            #filter for logged in agent
+            queryset = queryset.filter(agent__user=user)
+            
+        return queryset
+    
+    def get_success_url(self):
+        return reverse("leads:lead-detail", kwargs={"pk":self.get_object().id})
+
+
