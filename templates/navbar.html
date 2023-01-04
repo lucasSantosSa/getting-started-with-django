@@ -1,5 +1,5 @@
-<header class="text-gray-600 body-font" id="navbar">
-	<div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+<header class="bg-gray-100 text-gray-600 body-font" id="navbar">
+	<div class="container flex flex- flex-wrap pl-6 pr-6 flex-col md:flex-row items-center border-b border-orange-500">
 		<a href="{% url 'home' %}" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
 			<svg 	
 				xmlns="http://www.w3.org/2000/svg" 
@@ -20,7 +20,7 @@
 		{% if request.user.is_authenticated %}
 		Logged in as: {{ request.user.username }}
 		<a href="{% url 'logout' %}"
-			class="ml-5 inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+			class="ml-5 inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 hover:text-white rounded text-base mt-4 md:mt-0">
 			Logout
 			<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 				class="w-4 h-4 ml-1" viewBox="0 0 24 24">
@@ -29,7 +29,7 @@
 		</a>
 		{% else %}
 		<a href="{% url 'login' %}"
-			class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+			class="inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 hover:text-white rounded text-base mt-4 md:mt-0">
 			Login
 			<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 				class="w-4 h-4 ml-1" viewBox="0 0 24 24">

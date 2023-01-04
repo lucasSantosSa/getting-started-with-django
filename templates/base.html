@@ -14,7 +14,9 @@
 </head>
 <body>
     <div class="max-w-7xl mx-auto" >
-        {% include 'navbar.html' %}
+        {% if not request.get_full_path == '/' or request.user.is_authenticated %}
+            {% include 'navbar.html' %}
+        {% endif %}
         {% block content %}
         {% endblock content %}
     </div>
