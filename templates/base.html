@@ -13,7 +13,7 @@
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 </head>
 <body>
-    <div class="max-w-7xl mx-auto" >
+    <div class="w-screen " >
         {% if not request.get_full_path == '/' or request.user.is_authenticated %}
             {% include 'navbar.html' %}
         {% endif %}
