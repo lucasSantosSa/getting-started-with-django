@@ -24,7 +24,7 @@
 		<div class="container px-5 py-10 mx-auto">
 			<div class="w-full mx-auto overflow-auto border rounded-tl-lg rounded-tr-lg">
 				<table class="table-auto w-full text-left whitespace-no-wrap ">
-					<thead class="rounded bg-gray-600  ">
+					<thead class="rounded bg-indigo-900  ">
 						<tr>
 							<th class="px-4 py-3 title-font tracking-wider font-medium text-white text-xs">
 								FIRST NAME
@@ -57,10 +57,17 @@
 								<td class="px-4 py-3">{{lead.age}}</td>
 								<td class="px-4 py-3">{{lead.email}}</td>
 								<td class="px-4 py-3">{{lead.phone_number}}</td>
-								<td class="px-4 py-3 text-xs ">
-									<p class="px-8 w-10 bg-gray-500 rounded-full flex">
+								<td class="px-4 text-xs">
+									{% if lead.category == Converted %}
+									<div class="px-2 w-20 bg-green-300 rounded-full text-center">
 										{{lead.category}}
-									</p>
+									</div>
+									{% else %}
+									<div class="px-2 w-20 bg-gray-300 rounded-full text-center">
+										{{ lead.category }}
+									</div>
+									{% endif %}
+									
 								</td>
 								<td class="w-10 text-center text-indigo-600">
 									<a href="{% url 'leads:lead-detail' lead.pk %}" >		
