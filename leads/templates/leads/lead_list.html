@@ -58,13 +58,13 @@
 								<td class="px-4 py-3">{{lead.email}}</td>
 								<td class="px-4 py-3">{{lead.phone_number}}</td>
 								<td class="px-4 text-xs">
-									{% if lead.category == Converted %}
+									{% if lead.category %}
 									<div class="px-2 w-20 bg-green-300 rounded-full text-center">
-										{{lead.category}}
+										{{lead.category.name}}
 									</div>
 									{% else %}
 									<div class="px-2 w-20 bg-gray-300 rounded-full text-center">
-										{{ lead.category }}
+										Unassigned
 									</div>
 									{% endif %}
 									
