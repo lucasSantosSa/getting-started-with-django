@@ -6,7 +6,7 @@ env = environ.Env(
     DEBUG=(bool, False)
 )
 
-READ_DOT_ENV_FILE = env.bool("READ_DOT_ENV_FILE", default=True)
+READ_DOT_ENV_FILE = env.bool("READ_DOT_ENV_FILE", default=False)
 if READ_DOT_ENV_FILE:
     environ.Env.read_env()
 
@@ -87,6 +87,7 @@ DATABASES = {
     }
 }
 
+WHITENOISE_USE_FINDERS = True
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
